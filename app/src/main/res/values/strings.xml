@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SpinningWheel</string>
     <string name="invite_friends">Invite your friends and \n Earn <font color='#ecaf56'>10%</font> more</string>
+    <string name="spin">Spin</string>
 </resources>

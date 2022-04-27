@@ -10,8 +10,8 @@
         <entry key="app/src/main/res/drawable/invite_background.xml" value="0.1795" />
         <entry key="app/src/main/res/drawable/link_icon_background.xml" value="0.1795" />
         <entry key="app/src/main/res/drawable/messages_background.xml" value="0.1795" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19947916666666668" />
-        <entry key="app/src/main/res/layout/invite_popup.xml" value="0.32202548323006447" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4634180704752605" />
+        <entry key="app/src/main/res/layout/invite_popup.xml" value="0.31989383039803315" />
       </map>
     </option>
   </component>
