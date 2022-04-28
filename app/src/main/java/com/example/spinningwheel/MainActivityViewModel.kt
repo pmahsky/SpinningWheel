@@ -20,17 +20,10 @@ class MainActivityViewModel : ViewModel() {
 
     fun getSpinValue(): Int {
         val random = Random()
-
-        // reading random value between 10 to 30
+        // getting some random value between 10 and 30
         var spin = random.nextInt(20) + 10
-        Log.d("MainActivity", "Spin 1=== $spin")
-        // since the wheel has 10 divisions, the
-        // rotation should be a multiple of
-        // 360/10 = 36 degrees
+        // spin value can be returned as multiple of 36 degrees(360/10) as the wheel has 10 divisions
         spin *= 36
-
-        Log.d("MainActivity", "Spin 2=== $spin")
-
         return spin
     }
 }

@@ -14,6 +14,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var countDownTimer: CountDownTimer
     private lateinit var activityMainBinding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
 
@@ -37,20 +38,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rotateWheel() {
-        val spin = viewModel.getSpinValue()
-        // disabling the button so that user
-        // should not click on the button
-        // while the wheel is spinning
-        activityMainBinding.btnSpin.isEnabled = false
-        // timer for each degree movement
-        object : CountDownTimer((spin*20).toLong(), 1) {
-            override fun onTick(l: Long) {
-                Log.d("MainActivity","Wheel Rotation: ${activityMainBinding.ivWheel.rotation}")
-                // rotate the wheel
-                val rotation = activityMainBinding.ivWheel.rotation.plus(2)
+        val spin = SPIN_VALUE
 
+        //We can get the spin value from some user defined logic as well, like here we have a function defined in viewModel
+        //val spin = viewModel.getSpinValue()
+
+        activityMainBinding.btnSpin.isEnabled = false
+        countDownTimer = object : CountDownTimer(spin.toLong(), 1) {
+            override fun onTick(l: Long) {
+                val rotation = activityMainBinding.ivWheel.rotation.plus(2)
                 activityMainBinding.ivWheel.rotation = rotation
-                Log.d("MainActivity","onTick: $l")
             }
 
             override fun onFinish() {
@@ -60,10 +57,19 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
-    private fun showInviteDialog(){
+    private fun showInviteDialog() {
         val dialog = MaterialAlertDialogBuilder(this)
         dialog.setView(R.layout.invite_popup)
         dialog.setCancelable(true)
         dialog.show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        countDownTimer.cancel()
+    }
+
+    companion object {
+        private const val SPIN_VALUE = 5000
     }
 }
